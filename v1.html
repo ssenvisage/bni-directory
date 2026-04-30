@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BNI Chapter – Member Directory</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f4f6f9;
+      color: #222;
+    }
+
+    header {
+      background: #1a3a5c;
+      color: white;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    header h1 { font-size: 1.8rem; margin-bottom: 0.3rem; }
+    header p  { font-size: 0.95rem; opacity: 0.75; }
+
+    .search-bar {
+      max-width: 500px;
+      margin: 1.5rem auto;
+      padding: 0 1rem;
+    }
+
+    .search-bar input {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 0.95rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .card .name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1a3a5c;
+    }
+
+    .card .title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #e07b2a;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .card .company {
+      font-size: 0.9rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    .card .bio {
+      font-size: 0.88rem;
+      color: #444;
+      line-height: 1.55;
+      margin-top: 0.3rem;
+    }
+
+    .card .contacts {
+      margin-top: 0.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .card .contacts a {
+      font-size: 0.85rem;
+      color: #1a6fc4;
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .card .contacts a:hover { text-decoration: underline; }
+
+    .card .contacts span {
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e8f0fb;
+      color: #1a3a5c;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      font-weight: 600;
+      align-self: flex-start;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>BNI Chapter – Member Directory</h1>
+  <p>Contacts &amp; bios for our chapter members</p>
+</header>
+
+<div class="search-bar">
+  <input type="text" id="search" placeholder="Search by name, company, or category…" oninput="filterCards()" />
+</div>
+
+<div class="grid" id="grid">
+
+  <!-- =====================================================================
+       HOW TO ADD A MEMBER
+       Copy one <div class="card"> block, fill in the fields, save the file.
+       To remove a member, delete their entire <div class="card"> block.
+       ===================================================================== -->
+
+  <!-- MEMBER 1 -->
+  <div class="card">
+    <div class="name">Jane Smith</div>
+    <div class="title">Financial Advisor</div>
+    <div class="company">Smith Wealth Management</div>
+    <span class="tag">Finance</span>
+    <div class="bio">
+      Jane helps families and small business owners build long-term financial plans.
+      20+ years in personal finance; certified CFP. Passionate about financial literacy.
+    </div>
+    <div class="contacts">
+      <span>📞 (555) 123-4567</span>
+      <a href="mailto:jane@smithwealth.com">jane@smithwealth.com</a>
+      <a href="https://www.smithwealth.com" target="_blank">smithwealth.com</a>
+    </div>
+  </div>
+
+  <!-- MEMBER 2 -->
+  <div class="card">
+    <div class="name">Marcus Rivera</div>
+    <div class="title">General Contractor</div>
+    <div class="company">Rivera Construction LLC</div>
+    <span class="tag">Construction</span>
+    <div class="bio">
+      Licensed general contractor specializing in residential remodels and commercial fit-outs.
+      Serving the metro area for 15 years. Free estimates; insured and bonded.
+    </div>
+    <div class="contacts">
+      <span>📞 (555) 987-6543</span>
+      <a href="mailto:marcus@riveraconstruction.com">marcus@riveraconstruction.com</a>
+      <a href="https://www.riveraconstruction.com" target="_blank">riveraconstruction.com</a>
+    </div>
+  </div>
+
+  <!-- MEMBER 3 -->
+  <div class="card">
+    <div class="name">Priya Nair</div>
+    <div class="title">Marketing Consultant</div>
+    <div class="company">Nair Digital Studio</div>
+    <span class="tag">Marketing</span>
+    <div class="bio">
+      Helps local businesses grow their online presence through SEO, social media, and paid ads.
+      Former agency director; now works directly with small business owners.
+    </div>
+    <div class="contacts">
+      <span>📞 (555) 246-8101</span>
+      <a href="mailto:priya@nairdigital.com">priya@nairdigital.com</a>
+      <a href="https://www.nairdigital.com" target="_blank">nairdigital.com</a>
+    </div>
+  </div>
+
+  <!-- ADD MORE MEMBERS BELOW THIS LINE -->
+
+</div>
+
+<footer>
+  BNI Chapter Directory &bull; Updated April 2026
+</footer>
+
+<script>
+  function filterCards() {
+    const q = document.getElementById('search').value.toLowerCase();
+    document.querySelectorAll('.card').forEach(card => {
+      card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>

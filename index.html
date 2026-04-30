@@ -3,212 +3,290 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BNI Chapter – Member Directory</title>
+  <title>BNI Hudson Valley – Member Directory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red: #C8102E;
+      --navy: #1a2a3a;
+      --cream: #faf8f5;
+      --gray: #6b7280;
+    }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f4f6f9;
-      color: #222;
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      min-height: 100vh;
     }
 
-    header {
-      background: #1a3a5c;
-      color: white;
-      padding: 2rem 1.5rem;
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 4rem 2rem 5rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
-    header h1 { font-size: 1.8rem; margin-bottom: 0.3rem; }
-    header p  { font-size: 0.95rem; opacity: 0.75; }
-
-    .search-bar {
-      max-width: 500px;
-      margin: 1.5rem auto;
-      padding: 0 1rem;
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 60% 0%, rgba(200,16,46,0.18) 0%, transparent 65%);
     }
 
-    .search-bar input {
-      width: 100%;
-      padding: 0.6rem 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 0.95rem;
+    .hero img.logo {
+      height: 56px;
+      margin-bottom: 1.8rem;
+      position: relative;
+      filter: brightness(0) invert(1);
     }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.25rem;
-      max-width: 1100px;
-      margin: 0 auto 3rem;
-      padding: 0 1rem;
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      color: #fff;
+      letter-spacing: 0.01em;
+      position: relative;
     }
 
-    .card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      padding: 1.4rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .card .name {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #1a3a5c;
-    }
-
-    .card .title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #e07b2a;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-
-    .card .company {
-      font-size: 0.9rem;
-      color: #555;
-      font-style: italic;
-    }
-
-    .card .bio {
-      font-size: 0.88rem;
-      color: #444;
-      line-height: 1.55;
-      margin-top: 0.3rem;
-    }
-
-    .card .contacts {
+    .hero p {
+      color: rgba(255,255,255,0.55);
       margin-top: 0.6rem;
+      font-size: 0.95rem;
+      position: relative;
+    }
+
+    /* ── DESIGNS GRID ── */
+    .section {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+
+    .section-label {
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: var(--red);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section .sub {
+      color: var(--gray);
+      font-size: 0.93rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .design-card {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
     }
 
-    .card .contacts a {
-      font-size: 0.85rem;
-      color: #1a6fc4;
-      text-decoration: none;
-      word-break: break-all;
+    .design-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
     }
 
-    .card .contacts a:hover { text-decoration: underline; }
+    .preview {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      position: relative;
+      overflow: hidden;
+    }
 
-    .card .contacts span {
-      font-size: 0.85rem;
-      color: #555;
+    .preview-v1 {
+      background: linear-gradient(135deg, #1a3a5c 0%, #2a5080 100%);
+    }
+
+    .preview-v2 {
+      background: linear-gradient(135deg, #2D4A22 0%, #4a7a35 60%, #C8862A 100%);
+    }
+
+    .preview-v3 {
+      background: linear-gradient(135deg, #1C2B3A 0%, #2c4a5a 60%, #D4825A 100%);
+    }
+
+    .preview-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.55rem;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+    }
+
+    .card-body {
+      padding: 1.4rem 1.5rem 1.6rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-body p {
+      font-size: 0.86rem;
+      color: var(--gray);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin: 0.9rem 0 1.1rem;
     }
 
     .tag {
-      display: inline-block;
-      background: #e8f0fb;
-      color: #1a3a5c;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
+      font-weight: 600;
       padding: 0.2rem 0.55rem;
       border-radius: 20px;
-      font-weight: 600;
-      align-self: flex-start;
+      letter-spacing: 0.04em;
     }
 
+    .tag-blue  { background: #e8f0fb; color: #1a3a5c; }
+    .tag-green { background: #e6f2e0; color: #2D4A22; }
+    .tag-warm  { background: #fdf0e8; color: #a0522d; }
+
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.3rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.18s, color 0.18s;
+      text-align: center;
+    }
+
+    .btn-red    { background: var(--red); color: white; }
+    .btn-red:hover { background: #a50d25; }
+    .btn-green  { background: #2D4A22; color: white; }
+    .btn-green:hover { background: #1e3217; }
+    .btn-slate  { background: #1C2B3A; color: white; }
+    .btn-slate:hover { background: #111d27; }
+
+    /* ── FOOTER ── */
     footer {
       text-align: center;
-      padding: 1.5rem;
-      font-size: 0.8rem;
-      color: #aaa;
+      padding: 2rem;
+      font-size: 0.78rem;
+      color: #bbb;
+      border-top: 1px solid #eee;
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>BNI Chapter – Member Directory</h1>
-  <p>Contacts &amp; bios for our chapter members</p>
+<header class="hero">
+  <img class="logo" src="https://www.bni.com/wp-content/uploads/2024/09/BNI_logo.png" alt="BNI Logo" onerror="this.style.display='none'" />
+  <h1>Hudson Valley Chapter<br>Member Directory</h1>
+  <p>Choose a design below to explore the member directory</p>
 </header>
 
-<div class="search-bar">
-  <input type="text" id="search" placeholder="Search by name, company, or category…" oninput="filterCards()" />
-</div>
+<main class="section">
+  <div class="section-label">Design Concepts</div>
+  <h2>Three Visual Directions</h2>
+  <p class="sub">Each version presents the same member directory with a distinct look and feel. Click to preview.</p>
 
-<div class="grid" id="grid">
+  <div class="cards">
 
-  <!-- =====================================================================
-       HOW TO ADD A MEMBER
-       Copy one <div class="card"> block, fill in the fields, save the file.
-       To remove a member, delete their entire <div class="card"> block.
-       ===================================================================== -->
-
-  <!-- MEMBER 1 -->
-  <div class="card">
-    <div class="name">Jane Smith</div>
-    <div class="title">Financial Advisor</div>
-    <div class="company">Smith Wealth Management</div>
-    <span class="tag">Finance</span>
-    <div class="bio">
-      Jane helps families and small business owners build long-term financial plans.
-      20+ years in personal finance; certified CFP. Passionate about financial literacy.
+    <!-- V1 -->
+    <div class="design-card">
+      <div class="preview preview-v1">
+        <span>🏙</span>
+        <span class="preview-badge">V1</span>
+      </div>
+      <div class="card-body">
+        <h3>Classic Corporate</h3>
+        <p>Clean, professional navy-and-white layout. Bold card grid with search filtering. Straightforward and familiar.</p>
+        <div class="card-tags">
+          <span class="tag tag-blue">Professional</span>
+          <span class="tag tag-blue">Grid Layout</span>
+          <span class="tag tag-blue">High Contrast</span>
+        </div>
+        <a href="v1.html" class="btn btn-red">View Design 1</a>
+      </div>
     </div>
-    <div class="contacts">
-      <span>📞 (555) 123-4567</span>
-      <a href="mailto:jane@smithwealth.com">jane@smithwealth.com</a>
-      <a href="https://www.smithwealth.com" target="_blank">smithwealth.com</a>
+
+    <!-- V2 -->
+    <div class="design-card">
+      <div class="preview preview-v2">
+        <span>🌿</span>
+        <span class="preview-badge">V2</span>
+      </div>
+      <div class="card-body">
+        <h3>Hudson Valley Harvest</h3>
+        <p>Earthy forest greens and harvest golds inspired by the Catskills and Hudson Valley farmland. Warm, approachable, rooted.</p>
+        <div class="card-tags">
+          <span class="tag tag-green">Nature-Inspired</span>
+          <span class="tag tag-green">Earthy Palette</span>
+          <span class="tag tag-green">Serif Type</span>
+        </div>
+        <a href="v2.html" class="btn btn-green">View Design 2</a>
+      </div>
     </div>
+
+    <!-- V3 -->
+    <div class="design-card">
+      <div class="preview preview-v3">
+        <span>🌊</span>
+        <span class="preview-badge">V3</span>
+      </div>
+      <div class="card-body">
+        <h3>Hudson River Modern</h3>
+        <p>Deep slate and warm terracotta evoking the river at dusk. Bold editorial typography, minimal and refined.</p>
+        <div class="card-tags">
+          <span class="tag tag-warm">Dark &amp; Bold</span>
+          <span class="tag tag-warm">Editorial</span>
+          <span class="tag tag-warm">River Palette</span>
+        </div>
+        <a href="v3.html" class="btn btn-slate">View Design 3</a>
+      </div>
+    </div>
+
   </div>
-
-  <!-- MEMBER 2 -->
-  <div class="card">
-    <div class="name">Marcus Rivera</div>
-    <div class="title">General Contractor</div>
-    <div class="company">Rivera Construction LLC</div>
-    <span class="tag">Construction</span>
-    <div class="bio">
-      Licensed general contractor specializing in residential remodels and commercial fit-outs.
-      Serving the metro area for 15 years. Free estimates; insured and bonded.
-    </div>
-    <div class="contacts">
-      <span>📞 (555) 987-6543</span>
-      <a href="mailto:marcus@riveraconstruction.com">marcus@riveraconstruction.com</a>
-      <a href="https://www.riveraconstruction.com" target="_blank">riveraconstruction.com</a>
-    </div>
-  </div>
-
-  <!-- MEMBER 3 -->
-  <div class="card">
-    <div class="name">Priya Nair</div>
-    <div class="title">Marketing Consultant</div>
-    <div class="company">Nair Digital Studio</div>
-    <span class="tag">Marketing</span>
-    <div class="bio">
-      Helps local businesses grow their online presence through SEO, social media, and paid ads.
-      Former agency director; now works directly with small business owners.
-    </div>
-    <div class="contacts">
-      <span>📞 (555) 246-8101</span>
-      <a href="mailto:priya@nairdigital.com">priya@nairdigital.com</a>
-      <a href="https://www.nairdigital.com" target="_blank">nairdigital.com</a>
-    </div>
-  </div>
-
-  <!-- ADD MORE MEMBERS BELOW THIS LINE -->
-
-</div>
+</main>
 
 <footer>
-  BNI Chapter Directory &bull; Updated April 2026
+  BNI Hudson Valley Chapter &bull; Member Directory &bull; 2026
 </footer>
-
-<script>
-  function filterCards() {
-    const q = document.getElementById('search').value.toLowerCase();
-    document.querySelectorAll('.card').forEach(card => {
-      card.style.display = card.textContent.toLowerCase().includes(q) ? '' : 'none';
-    });
-  }
-</script>
 
 </body>
 </html>
