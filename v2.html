@@ -3,308 +3,339 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BNI Hudson Valley – Harvest Edition</title>
+  <title>BNI Referral Success Team – River &amp; Shore</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --forest:  #2D4A22;
-      --pine:    #3d6130;
-      --gold:    #C8862A;
-      --gold-lt: #e0a84e;
-      --cream:   #F5F0E3;
-      --parchment: #EDE5D0;
-      --bark:    #5C3D1E;
-      --mist:    #8A9E80;
-      --text:    #1e2d1a;
+      --navy:   #3d5a80;
+      --blue:   #98c1d9;
+      --ice:    #e0fbfc;
+      --coral:  #ee6c4d;
+      --dark:   #293241;
+      --white:  #ffffff;
+      --offwhite: #f4f8fb;
     }
 
     body {
       font-family: 'Source Sans 3', sans-serif;
-      background: var(--cream);
-      color: var(--text);
+      background: var(--offwhite);
+      color: var(--dark);
     }
 
     /* ── HEADER ── */
     header {
-      background: var(--forest);
+      background: var(--dark);
       position: relative;
       overflow: hidden;
     }
 
-    header::before {
+    header::after {
       content: '';
       position: absolute;
-      inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--coral), var(--blue), var(--coral));
     }
 
     .header-inner {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 2.5rem 2rem;
+      padding: 2rem 2rem 2.4rem;
       display: flex;
-      align-items: center;
+      align-items: flex-end;
+      justify-content: space-between;
       gap: 2rem;
-      position: relative;
     }
 
-    .header-logo img {
-      height: 52px;
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+
+    .header-brand img {
+      height: 48px;
       filter: brightness(0) invert(1);
     }
 
-    .header-text h1 {
+    .brand-sep {
+      width: 1px;
+      height: 44px;
+      background: rgba(255,255,255,0.15);
+    }
+
+    .brand-text h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
       color: white;
       line-height: 1.2;
     }
 
-    .header-text p {
-      color: var(--mist);
-      font-size: 0.9rem;
-      margin-top: 0.3rem;
+    .brand-text p {
+      font-size: 0.78rem;
+      color: var(--blue);
+      margin-top: 0.2rem;
+      font-weight: 300;
+      letter-spacing: 0.04em;
     }
 
-    .header-divider {
-      width: 1px;
-      height: 52px;
-      background: rgba(255,255,255,0.2);
+    .header-tagline {
+      text-align: right;
     }
 
-    /* ── BANNER STRIP ── */
-    .banner {
-      background: var(--gold);
-      padding: 0.55rem 2rem;
-      text-align: center;
+    .header-tagline .tagline-big {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--coral);
+      line-height: 1.2;
     }
 
-    .banner span {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: white;
-      letter-spacing: 0.1em;
+    .header-tagline .tagline-small {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.2rem;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    /* ── SEARCH ── */
-    .search-wrap {
-      max-width: 540px;
-      margin: 2.5rem auto 0;
-      padding: 0 1.5rem;
+    /* ── SEARCH BAR ── */
+    .search-strip {
+      background: var(--navy);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
     }
 
-    .search-wrap input {
-      width: 100%;
-      padding: 0.75rem 1.2rem;
-      border: 2px solid var(--parchment);
-      border-radius: 8px;
-      font-size: 0.95rem;
+    .search-strip input {
+      flex: 1;
+      max-width: 500px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      padding: 0.6rem 1.1rem;
+      color: white;
       font-family: inherit;
-      background: white;
-      color: var(--text);
-      transition: border-color 0.2s;
+      font-size: 0.9rem;
     }
 
-    .search-wrap input:focus {
-      outline: none;
-      border-color: var(--gold);
-    }
+    .search-strip input::placeholder { color: rgba(255,255,255,0.4); }
+    .search-strip input:focus { outline: none; border-color: var(--coral); }
 
     /* ── MAIN ── */
     .main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 5rem;
+      max-width: 1120px;
+      margin: 2.5rem auto 5rem;
+      padding: 0 1.5rem;
     }
 
-    .grid-label {
-      font-size: 0.75rem;
+    .back-link {
+      font-size: 0.8rem;
+      color: var(--navy);
+      text-decoration: none;
       font-weight: 600;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--parchment);
+      display: inline-block;
+      margin-bottom: 1.8rem;
     }
+
+    .back-link:hover { color: var(--coral); }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.4rem;
     }
 
     /* ── MEMBER CARD ── */
     .card {
-      background: white;
+      background: var(--white);
       border-radius: 12px;
-      border: 1px solid var(--parchment);
       overflow: hidden;
+      border: 1px solid #d4e4f0;
       display: flex;
       flex-direction: column;
       transition: box-shadow 0.2s, transform 0.2s;
     }
 
     .card:hover {
-      box-shadow: 0 8px 28px rgba(45,74,34,0.12);
-      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(41,50,65,0.14);
+      transform: translateY(-4px);
     }
 
-    .card-accent {
-      height: 5px;
-      background: linear-gradient(90deg, var(--forest), var(--gold));
+    /* Card top: logo + name block */
+    .card-head {
+      background: var(--ice);
+      border-bottom: 1px solid #c8e8ec;
+      padding: 1.2rem 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
 
+    .logo-wrap {
+      width: 60px;
+      height: 60px;
+      border-radius: 10px;
+      background: white;
+      border: 1px solid #b8d8e8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .logo-fallback {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .head-text { flex: 1; min-width: 0; }
+
+    .head-text .name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--dark);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .head-text .profession {
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--coral);
+      margin-top: 0.15rem;
+    }
+
+    .head-text .company {
+      font-size: 0.82rem;
+      color: #666;
+      font-style: italic;
+      margin-top: 0.1rem;
+    }
+
+    /* Card body */
     .card-body {
-      padding: 1.4rem 1.5rem 1.5rem;
+      padding: 1.1rem 1.3rem 1.3rem;
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.6rem;
     }
 
-    .card-body .name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.18rem;
+    .pill {
+      display: inline-block;
+      align-self: flex-start;
+      background: #dbedf6;
+      color: var(--navy);
+      font-size: 0.7rem;
       font-weight: 700;
-      color: var(--forest);
-    }
-
-    .card-body .profession {
-      font-size: 0.8rem;
-      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--gold);
+      letter-spacing: 0.06em;
     }
 
-    .card-body .company {
-      font-size: 0.9rem;
-      color: #666;
-      font-style: italic;
-    }
-
-    .divider {
-      height: 1px;
-      background: var(--parchment);
-      margin: 0.6rem 0;
-    }
-
-    .card-body .bio {
+    .bio {
       font-size: 0.875rem;
       line-height: 1.65;
       color: #444;
       flex: 1;
     }
 
-    .card-contacts {
-      margin-top: 0.8rem;
+    .contacts {
+      margin-top: 0.6rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #e4eff7;
       display: flex;
       flex-direction: column;
       gap: 0.3rem;
     }
 
-    .card-contacts a,
-    .card-contacts span {
-      font-size: 0.83rem;
-      color: #555;
-      text-decoration: none;
-    }
-
-    .card-contacts a { color: var(--pine); }
-    .card-contacts a:hover { text-decoration: underline; }
-
-    .pill {
-      display: inline-block;
-      align-self: flex-start;
-      background: #edf5e9;
-      color: var(--forest);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 0.22rem 0.6rem;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
+    .contacts span { font-size: 0.82rem; color: #666; }
+    .contacts a    { font-size: 0.82rem; color: var(--navy); text-decoration: none; }
+    .contacts a:hover { color: var(--coral); text-decoration: underline; }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--forest);
-      color: rgba(255,255,255,0.5);
+      background: var(--dark);
+      color: rgba(255,255,255,0.4);
       text-align: center;
       padding: 1.8rem;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
     }
 
-    footer a {
-      color: var(--gold-lt);
-      text-decoration: none;
-      margin-right: 1rem;
-    }
-
-    nav.back {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 1rem 1.5rem 0;
-    }
-
-    nav.back a {
-      font-size: 0.82rem;
-      color: var(--pine);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    nav.back a:hover { text-decoration: underline; }
+    footer a { color: var(--blue); text-decoration: none; margin-right: 1rem; }
   </style>
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <div class="header-logo">
+    <div class="header-brand">
       <img src="https://www.bni.com/wp-content/uploads/2024/09/BNI_logo.png" alt="BNI" onerror="this.style.display='none'" />
+      <div class="brand-sep"></div>
+      <div class="brand-text">
+        <h1>BNI Referral<br>Success Team</h1>
+        <p>Hudson Valley Chapter</p>
+      </div>
     </div>
-    <div class="header-divider"></div>
-    <div class="header-text">
-      <h1>Hudson Valley Chapter</h1>
-      <p>Member Directory &mdash; Harvest Edition</p>
+    <div class="header-tagline">
+      <div class="tagline-big">Givers Gain.</div>
+      <div class="tagline-small">Member Directory 2026</div>
     </div>
   </div>
 </header>
 
-<div class="banner"><span>Givers Gain &bull; Hudson Valley &bull; Building Relationships That Last</span></div>
-
-<div class="search-wrap">
-  <input type="text" id="search" placeholder="Search members by name, profession, or company…" oninput="filterCards()" />
+<div class="search-strip">
+  <input type="text" id="search" placeholder="Search by name, profession, or company…" oninput="filterCards()" />
 </div>
 
 <main class="main">
-  <nav class="back" style="padding-left:0; margin-bottom:1.5rem;">
-    <a href="index.html">&#8592; Back to all designs</a>
-  </nav>
-
-  <div class="grid-label">Chapter Members</div>
+  <a class="back-link" href="index.html">&#8592; Back to all designs</a>
 
   <div class="grid" id="grid">
 
     <!-- ================================================================
-         TO ADD A MEMBER: copy a .card block, fill in the details, save.
+         TO ADD A MEMBER:
+         1. Copy a .card block and fill in the fields
+         2. In .logo-wrap: replace the empty img src with your logo URL
+            (leave blank to show initials fallback instead)
          ================================================================ -->
 
     <div class="card">
-      <div class="card-accent"></div>
+      <div class="card-head">
+        <div class="logo-wrap">
+          <!-- Replace src with business logo URL -->
+          <img src="" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+          <div class="logo-fallback" style="display:block">JS</div>
+        </div>
+        <div class="head-text">
+          <div class="name">Jane Smith</div>
+          <div class="profession">Financial Advisor</div>
+          <div class="company">Smith Wealth Management</div>
+        </div>
+      </div>
       <div class="card-body">
-        <div class="name">Jane Smith</div>
-        <div class="profession">Financial Advisor</div>
-        <div class="company">Smith Wealth Management</div>
         <span class="pill">Finance</span>
-        <div class="divider"></div>
-        <div class="bio">Jane helps families and small business owners build long-term financial plans. 20+ years in personal finance; certified CFP. Passionate about financial literacy in the Hudson Valley community.</div>
-        <div class="card-contacts">
+        <p class="bio">Jane helps families and small business owners build long-term financial plans. 20+ years in personal finance; certified CFP. Passionate about financial literacy in the Hudson Valley community.</p>
+        <div class="contacts">
           <span>📞 (555) 123-4567</span>
           <a href="mailto:jane@smithwealth.com">jane@smithwealth.com</a>
           <a href="https://www.smithwealth.com" target="_blank">smithwealth.com</a>
@@ -313,15 +344,21 @@
     </div>
 
     <div class="card">
-      <div class="card-accent"></div>
+      <div class="card-head">
+        <div class="logo-wrap">
+          <img src="" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+          <div class="logo-fallback" style="display:block">MR</div>
+        </div>
+        <div class="head-text">
+          <div class="name">Marcus Rivera</div>
+          <div class="profession">General Contractor</div>
+          <div class="company">Rivera Construction LLC</div>
+        </div>
+      </div>
       <div class="card-body">
-        <div class="name">Marcus Rivera</div>
-        <div class="profession">General Contractor</div>
-        <div class="company">Rivera Construction LLC</div>
         <span class="pill">Construction</span>
-        <div class="divider"></div>
-        <div class="bio">Licensed general contractor specializing in residential remodels and commercial fit-outs. Serving the Hudson Valley for 15 years. Free estimates; insured and bonded.</div>
-        <div class="card-contacts">
+        <p class="bio">Licensed general contractor specializing in residential remodels and commercial fit-outs. Serving the Hudson Valley for 15 years. Free estimates; insured and bonded.</p>
+        <div class="contacts">
           <span>📞 (555) 987-6543</span>
           <a href="mailto:marcus@riveraconstruction.com">marcus@riveraconstruction.com</a>
           <a href="https://www.riveraconstruction.com" target="_blank">riveraconstruction.com</a>
@@ -330,15 +367,21 @@
     </div>
 
     <div class="card">
-      <div class="card-accent"></div>
+      <div class="card-head">
+        <div class="logo-wrap">
+          <img src="" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'" />
+          <div class="logo-fallback" style="display:block">PN</div>
+        </div>
+        <div class="head-text">
+          <div class="name">Priya Nair</div>
+          <div class="profession">Marketing Consultant</div>
+          <div class="company">Nair Digital Studio</div>
+        </div>
+      </div>
       <div class="card-body">
-        <div class="name">Priya Nair</div>
-        <div class="profession">Marketing Consultant</div>
-        <div class="company">Nair Digital Studio</div>
         <span class="pill">Marketing</span>
-        <div class="divider"></div>
-        <div class="bio">Helps local businesses grow their online presence through SEO, social media, and paid ads. Former agency director; now works directly with Hudson Valley small business owners.</div>
-        <div class="card-contacts">
+        <p class="bio">Helps local businesses grow their online presence through SEO, social media, and paid ads. Former agency director; now works directly with Hudson Valley small business owners.</p>
+        <div class="contacts">
           <span>📞 (555) 246-8101</span>
           <a href="mailto:priya@nairdigital.com">priya@nairdigital.com</a>
           <a href="https://www.nairdigital.com" target="_blank">nairdigital.com</a>
@@ -353,7 +396,7 @@
 
 <footer>
   <a href="index.html">&#8592; All Designs</a>
-  BNI Hudson Valley Chapter &bull; Member Directory 2026
+  BNI Referral Success Team &bull; Hudson Valley Chapter &bull; 2026
 </footer>
 
 <script>
