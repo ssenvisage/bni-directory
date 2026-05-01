@@ -60,7 +60,7 @@ window.BNI_DIRECTORY_DATA = [
     "website": "https://freshcoatpainters.com"
   },
   {
-    "bio": "",
+    "bio": "James helps individuals, families, and business owners gain clarity and confidence through personalized financial planning. He focuses on retirement, investments, and long-term strategy as a trusted financial partner.",
     "category": "Finance",
     "cellPhone": "917-258-3487",
     "company": "Ameriprise Financial",
