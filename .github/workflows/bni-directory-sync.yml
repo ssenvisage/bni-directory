@@ -4,6 +4,10 @@ on:
   repository_dispatch:
     types: [bni-directory-sync]
 
+concurrency:
+  group: bni-directory-sync
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
