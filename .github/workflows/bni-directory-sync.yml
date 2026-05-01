@@ -1,0 +1,40 @@
+name: Sync BNI Directory Data
+
+on:
+  repository_dispatch:
+    types: [bni-directory-sync]
+
+permissions:
+  contents: write
+
+jobs:
+  sync-directory:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Write members-data.js from dispatch payload
+        env:
+          MEMBERS_JSON: ${{ toJson(github.event.client_payload.members) }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          members = json.loads(os.environ["MEMBERS_JSON"])
+          members = sorted(members, key=lambda member: (member.get("name") or "").casefold())
+
+          output = "window.BNI_DIRECTORY_DATA = " + json.dumps(members, indent=2, ensure_ascii=True) + ";\n"
+          Path("members-data.js").write_text(output, encoding="utf-8")
+          PY
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add members-data.js
+          git diff --cached --quiet || git commit -m "Update directory data from Power Automate"
+          git push
