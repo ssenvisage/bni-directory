@@ -4,7 +4,7 @@ window.BNI_DIRECTORY_DATA = [
     "category": "Technology",
     "cellPhone": "914-980-0386",
     "company": "Empire AV LLC",
-    "email": "empireav@yahoo.com>",
+    "email": "empireav@yahoo.com",
     "logoUrl": "",
     "name": "Charlie Schunk",
     "officePhone": "",
