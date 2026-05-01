@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
   <title>BNI Referral Success Team – The Directory</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -99,7 +100,7 @@
     .hero-brand {
       display: flex;
       align-items: center;
-      gap: 1.2rem;
+      gap: 1.3rem;
       padding-bottom: 2.5rem;
     }
 
@@ -238,8 +239,7 @@
       grid-template-columns: 88px 1fr 270px;
       overflow: hidden;
       position: relative;
-      max-height: 185px;
-      transition: box-shadow 0.2s, max-height 0.35s ease-out;
+      transition: box-shadow 0.2s;
     }
 
     .mcard::before {
@@ -253,17 +253,15 @@
 
     .mcard:hover {
       box-shadow: 0 6px 26px var(--shadow-hover);
-      max-height: 320px;
     }
 
     /* Logo column */
     .mcard-logo {
-      background: var(--blush);
-      border-right: 1px solid var(--border-card);
+      background: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.2rem 0.8rem;
+      padding: 1.2rem 14px 1.2rem 18px;
     }
 
     .logo-box {
@@ -340,11 +338,27 @@
       transition: max-height 0.35s ease-out;
     }
 
-    .mcard:hover .mcard-body .bio {
+    .mcard.expanded .mcard-body .bio {
       -webkit-line-clamp: unset;
       line-clamp: unset;
-      max-height: 8rem;
+      max-height: 12rem;
     }
+
+    .bio-toggle {
+      background: none;
+      border: none;
+      padding: 0;
+      margin-top: 0.3rem;
+      align-self: flex-start;
+      font-family: var(--font-ui);
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--crimson);
+      cursor: pointer;
+      letter-spacing: 0.02em;
+    }
+
+    .bio-toggle:hover { color: var(--rose); }
 
     .cat-tag {
       display: inline-block;
@@ -394,26 +408,40 @@
       flex: 1;
     }
 
-    .mcard:hover .contact-text {
-      white-space: normal;
-      overflow: visible;
-      text-overflow: unset;
-    }
-
     .mcard-contact a:hover { color: var(--rose); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 680px) {
+      .hero-inner { padding: 1.8rem 1.2rem 0; }
       .hero-right { display: none; }
-      .mcard { grid-template-columns: 1fr; max-height: none; }
+
+      .hero-tab { padding: 0 1.2rem; }
+      .tab-search { width: 100%; margin-left: 0; padding-bottom: 0.7rem; }
+      .tab-search input { width: 100%; }
+
+      .mcard {
+        grid-template-columns: 1fr;
+        max-height: none;
+        transition: box-shadow 0.2s;
+      }
+
       .mcard-logo {
-        border-right: none;
-        border-bottom: 1px solid var(--border-card);
-        padding: 0.8rem 1.2rem;
+        padding: 1rem 1.2rem;
         flex-direction: row;
+        justify-content: flex-start;
         gap: 0.8rem;
       }
-      .mcard-contact { min-width: unset; max-height: none; }
+
+      .mcard-contact {
+        min-width: unset;
+        overflow: visible;
+      }
+
+      .mcard-contact .contact-text {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+      }
     }
 
     /* ── FOOTER ── */
@@ -500,9 +528,10 @@
         <div class="company">Smith Wealth Management</div>
         <span class="cat-tag">Finance</span>
         <div class="bio">Jane helps families and small business owners build long-term financial plans. 20+ years in personal finance; certified CFP. Passionate about financial literacy in the Hudson Valley community.</div>
+        <button class="bio-toggle">more</button>
       </div>
       <div class="mcard-contact">
-        <span><svg width="14" height="14"><use href="#icon-phone"/></svg><span class="contact-text">(555) 123-4567</span></span>
+        <a href="tel:+15551234567"><svg width="14" height="14"><use href="#icon-phone"/></svg><span class="contact-text">(555) 123-4567</span></a>
         <a href="mailto:jane@smithwealth.com"><svg width="14" height="14"><use href="#icon-mail"/></svg><span class="contact-text">jane@smithwealth.com</span></a>
         <a href="https://www.smithwealth.com" target="_blank"><svg width="14" height="14"><use href="#icon-globe"/></svg><span class="contact-text">smithwealth.com</span></a>
       </div>
@@ -521,9 +550,10 @@
         <div class="company">Rivera Construction LLC</div>
         <span class="cat-tag">Construction</span>
         <div class="bio">Licensed general contractor specializing in residential remodels and commercial fit-outs. Serving the Hudson Valley for 15 years. Free estimates; insured and bonded.</div>
+        <button class="bio-toggle">more</button>
       </div>
       <div class="mcard-contact">
-        <span><svg width="14" height="14"><use href="#icon-phone"/></svg><span class="contact-text">(555) 987-6543</span></span>
+        <a href="tel:+15559876543"><svg width="14" height="14"><use href="#icon-phone"/></svg><span class="contact-text">(555) 987-6543</span></a>
         <a href="mailto:marcus@riveraconstruction.com"><svg width="14" height="14"><use href="#icon-mail"/></svg><span class="contact-text">marcus@riveraconstruction.com</span></a>
         <a href="https://www.riveraconstruction.com" target="_blank"><svg width="14" height="14"><use href="#icon-globe"/></svg><span class="contact-text">riveraconstruction.com</span></a>
       </div>
@@ -542,9 +572,10 @@
         <div class="company">Nair Digital Studio</div>
         <span class="cat-tag">Marketing</span>
         <div class="bio">Helps local businesses grow their online presence through SEO, social media, and paid ads. Former agency director; now works directly with Hudson Valley small business owners.</div>
+        <button class="bio-toggle">more</button>
       </div>
       <div class="mcard-contact">
-        <span><svg width="14" height="14"><use href="#icon-phone"/></svg><span class="contact-text">(555) 246-8101</span></span>
+        <a href="tel:+15552468101"><svg width="14" height="14"><use href="#icon-phone"/></svg><span class="contact-text">(555) 246-8101</span></a>
         <a href="mailto:priya@nairdigital.com"><svg width="14" height="14"><use href="#icon-mail"/></svg><span class="contact-text">priya@nairdigital.com</span></a>
         <a href="https://www.nairdigital.com" target="_blank"><svg width="14" height="14"><use href="#icon-globe"/></svg><span class="contact-text">nairdigital.com</span></a>
       </div>
@@ -574,6 +605,41 @@
       c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
     });
   }
+
+  function checkTruncation(btn) {
+    const bio = btn.previousElementSibling;
+    const card = btn.closest('.mcard');
+    const wasExpanded = card.classList.contains('expanded');
+
+    if (wasExpanded) card.classList.remove('expanded');
+    const truncated = bio.scrollHeight > bio.clientHeight + 1;
+    if (wasExpanded) card.classList.add('expanded');
+
+    btn.hidden = !truncated;
+    if (!truncated && wasExpanded) {
+      card.classList.remove('expanded');
+      btn.textContent = 'more';
+    }
+  }
+
+  document.fonts.ready.then(() => {
+    document.querySelectorAll('.bio-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.mcard');
+        const expanded = card.classList.toggle('expanded');
+        btn.textContent = expanded ? 'less' : 'more';
+      });
+      checkTruncation(btn);
+    });
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        document.querySelectorAll('.bio-toggle').forEach(checkTruncation);
+      }, 150);
+    });
+  });
 </script>
 
 </body>
