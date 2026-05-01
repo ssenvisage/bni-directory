@@ -168,7 +168,7 @@ window.BNI_DIRECTORY_DATA = [
     "website": "https://mastercraftcontracting.com/"
   },
   {
-    "bio": "Helping your automate you business and keep you safe",
+    "bio": "Shanthan helps business owners keep their technology running smoothly so they can stay focused on growing their business. He also builds custom automations that save time, reduce manual work, and improve efficiency.",
     "category": "Technology",
     "cellPhone": "203-443-1646",
     "company": "CMIT Solutions of Northern Westchester & Putnam County",
