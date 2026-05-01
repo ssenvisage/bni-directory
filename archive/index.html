@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BNI Referral Success Team – Design Concepts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f6f7f9;
+      color: #1a2430;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: #1B3A57;
+      padding: 3.5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(155,27,48,0.2);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 250px; height: 250px;
+      border-radius: 50%;
+      background: rgba(168,218,220,0.12);
+    }
+
+    .hero img.logo {
+      height: 54px;
+      margin-bottom: 1.6rem;
+      position: relative;
+      z-index: 1;
+      filter: brightness(0) invert(1);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 4vw, 2.6rem);
+      color: #fff;
+      position: relative;
+      z-index: 1;
+      line-height: 1.2;
+    }
+
+    .hero h1 em {
+      color: #A8DADC;
+      font-style: italic;
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.6rem;
+      font-size: 0.92rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── CONTENT ── */
+    .section {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+
+    .section-eyebrow {
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: #9B1B30;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section .sub {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+    }
+
+    /* ── DESIGN CARDS ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .dcard {
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .dcard:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.13);
+    }
+
+    /* Palette swatch preview */
+    .palette-preview {
+      height: 160px;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .swatch { flex: 1; }
+
+    /* V1 palette: #1B3A57, #9B1B30, #A8DADC, #F1FAEE, #457B9D */
+    .s1-a { background: #1B3A57; }
+    .s1-b { background: #9B1B30; }
+    .s1-c { background: #A8DADC; }
+    .s1-d { background: #F1FAEE; }
+    .s1-e { background: #457B9D; }
+
+    /* V2 palette: #3d5a80, #98c1d9, #e0fbfc, #ee6c4d, #293241 */
+    .s2-a { background: #3d5a80; }
+    .s2-b { background: #98c1d9; }
+    .s2-c { background: #e0fbfc; }
+    .s2-d { background: #ee6c4d; }
+    .s2-e { background: #293241; }
+
+    /* V3 palette: #c77780, #c03844, #438970, #b0cdd1, #2a1f20 */
+    .s3-a { background: #c77780; }
+    .s3-b { background: #c03844; }
+    .s3-c { background: #438970; }
+    .s3-d { background: #b0cdd1; }
+    .s3-e { background: #f5f2f0; }
+
+    .palette-label {
+      position: absolute;
+      bottom: 8px;
+      left: 10px;
+      background: rgba(0,0,0,0.45);
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 0.18rem 0.5rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      backdrop-filter: blur(4px);
+    }
+
+    .dcard-body {
+      padding: 1.4rem 1.5rem 1.6rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .version-badge {
+      display: inline-block;
+      background: #f0f2f5;
+      color: #6b7280;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.18rem 0.5rem;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      align-self: flex-start;
+      margin-bottom: 0.6rem;
+    }
+
+    .dcard-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .dcard-body p {
+      font-size: 0.86rem;
+      color: #6b7280;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .feature-list {
+      margin: 0.9rem 0 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .feature-list li {
+      font-size: 0.78rem;
+      color: #555;
+      list-style: none;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .feature-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #aaa;
+    }
+
+    .btn {
+      display: block;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      transition: filter 0.15s;
+    }
+
+    .btn:hover { filter: brightness(0.88); }
+
+    .btn-v1 { background: #1B3A57; color: white; }
+    .btn-v2 { background: #293241; color: white; }
+    .btn-v3 { background: #c03844; color: white; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.78rem;
+      color: #bbb;
+      border-top: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <img class="logo" src="https://www.bni.com/wp-content/uploads/2024/09/BNI_logo.png" alt="BNI Logo" onerror="this.style.display='none'" />
+  <h1>BNI <em>Referral Success Team</em><br>Hudson Valley Chapter</h1>
+  <p>Member Directory &mdash; Choose a design concept below</p>
+</header>
+
+<main class="section">
+  <div class="section-eyebrow">Design Concepts</div>
+  <h2>Three Visual Directions</h2>
+  <p class="sub">Each version is a different layout and color palette. Click any to preview the full directory.</p>
+
+  <div class="cards">
+
+    <!-- V1 -->
+    <div class="dcard">
+      <div class="palette-preview">
+        <div class="swatch s1-a"></div>
+        <div class="swatch s1-b"></div>
+        <div class="swatch s1-c"></div>
+        <div class="swatch s1-d"></div>
+        <div class="swatch s1-e"></div>
+        <span class="palette-label">Navy &bull; Crimson &bull; Teal</span>
+      </div>
+      <div class="dcard-body">
+        <span class="version-badge">Design 1</span>
+        <h3>The Directory</h3>
+        <p>Bold split header with a horizontal list layout — more like a professional membership directory. Scannable at a glance.</p>
+        <ul class="feature-list">
+          <li>Horizontal member rows</li>
+          <li>Category filter tabs</li>
+          <li>Live member count</li>
+          <li>Business logo slot</li>
+        </ul>
+        <a href="v1.html" class="btn btn-v1">View Design 1</a>
+      </div>
+    </div>
+
+    <!-- V2 -->
+    <div class="dcard">
+      <div class="palette-preview">
+        <div class="swatch s2-a"></div>
+        <div class="swatch s2-b"></div>
+        <div class="swatch s2-c"></div>
+        <div class="swatch s2-d"></div>
+        <div class="swatch s2-e"></div>
+        <span class="palette-label">Steel Blue &bull; Ice &bull; Coral</span>
+      </div>
+      <div class="dcard-body">
+        <span class="version-badge">Design 2</span>
+        <h3>River &amp; Shore</h3>
+        <p>Cool Hudson River blues with a warm coral accent. Card grid with logo prominently displayed in a light ice-blue header block.</p>
+        <ul class="feature-list">
+          <li>Card grid layout</li>
+          <li>Logo + name header per card</li>
+          <li>Light &amp; airy feel</li>
+          <li>Business logo slot</li>
+        </ul>
+        <a href="v2.html" class="btn btn-v2">View Design 2</a>
+      </div>
+    </div>
+
+    <!-- V3 -->
+    <div class="dcard">
+      <div class="palette-preview">
+        <div class="swatch s3-a"></div>
+        <div class="swatch s3-b"></div>
+        <div class="swatch s3-c"></div>
+        <div class="swatch s3-d"></div>
+        <div class="swatch s3-e"></div>
+        <span class="palette-label">Rose &bull; Crimson &bull; Duck Blue</span>
+      </div>
+      <div class="dcard-body">
+        <span class="version-badge">Design 3</span>
+        <h3>Valley Rose</h3>
+        <p>Warm cinnamon rose and crimson with duck blue accents. Elegant serif typography and a gradient stripe on each card.</p>
+        <ul class="feature-list">
+          <li>Card grid layout</li>
+          <li>Cormorant Garamond serif type</li>
+          <li>Gradient accent stripe</li>
+          <li>Business logo slot</li>
+        </ul>
+        <a href="v3.html" class="btn btn-v3">View Design 3</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  BNI Referral Success Team &bull; Hudson Valley Chapter &bull; 2026
+</footer>
+
+</body>
+</html>
