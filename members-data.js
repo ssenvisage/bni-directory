@@ -66,7 +66,7 @@ window.BNI_DIRECTORY_DATA = [
     "company": "Ameriprise Financial",
     "email": "james.dieguez@ampf.com",
     "logoUrl": "",
-    "name": "James Dieguez hello gogo",
+    "name": "James Dieguez",
     "officePhone": "516-941-8318",
     "profession": "Financial advisor",
     "website": "https://www.ameriprise.com"
