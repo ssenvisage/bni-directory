@@ -1,18 +1,6 @@
 window.BNI_DIRECTORY_DATA = [
   {
     "bio": "",
-    "category": "Legal",
-    "cellPhone": "914-741-5050",
-    "company": "Wolper Law Firm PLLC",
-    "email": "rwolper@wolperlaw.com",
-    "logoUrl": "",
-    "name": "Bob Wolper",
-    "officePhone": "",
-    "profession": "Real estate, business law & tax reduction",
-    "website": "https://www.wolperlaw.com"
-  },
-  {
-    "bio": "",
     "category": "Technology",
     "cellPhone": "914-980-0386",
     "company": "Empire AV LLC",
@@ -34,18 +22,6 @@ window.BNI_DIRECTORY_DATA = [
     "officePhone": "",
     "profession": "Accounting & advisory services",
     "website": "https://www.achieveadvisors.com"
-  },
-  {
-    "bio": "",
-    "category": "Property Services",
-    "cellPhone": "914-739-4512",
-    "company": "F & F Electric Contracting",
-    "email": "ffelectriccontractor@gmail.com",
-    "logoUrl": "",
-    "name": "F & F Electric Contracting",
-    "officePhone": "",
-    "profession": "Electrical contractor",
-    "website": "https://asher-law.com/asher-law-profile/"
   },
   {
     "bio": "",
@@ -108,6 +84,18 @@ window.BNI_DIRECTORY_DATA = [
     "website": ""
   },
   {
+    "bio": "",
+    "category": "Property Services",
+    "cellPhone": "914-739-4512",
+    "company": "F & F Electric Contracting",
+    "email": "ffelectriccontractor@gmail.com",
+    "logoUrl": "",
+    "name": "Joseph Schrade",
+    "officePhone": "",
+    "profession": "Electrical contractor",
+    "website": "https://asher-law.com/asher-law-profile/"
+  },
+  {
     "bio": "Helping you ensure you have the right Insurance setup",
     "category": "Finance",
     "cellPhone": "",
@@ -166,6 +154,18 @@ window.BNI_DIRECTORY_DATA = [
     "officePhone": "",
     "profession": "Contracting & remodeling",
     "website": "https://mastercraftcontracting.com/"
+  },
+  {
+    "bio": "",
+    "category": "Legal",
+    "cellPhone": "914-741-5050",
+    "company": "Wolper Law Firm PLLC",
+    "email": "rwolper@wolperlaw.com",
+    "logoUrl": "",
+    "name": "Robert Wolper",
+    "officePhone": "",
+    "profession": "Real estate, business law & tax reduction",
+    "website": "https://www.wolperlaw.com"
   },
   {
     "bio": "Shanthan helps business owners keep their technology running smoothly so they can stay focused on growing their business. He also builds custom automations that save time, reduce manual work, and improve efficiency.",
