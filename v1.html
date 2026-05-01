@@ -8,14 +8,43 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* ══════════════════════════════════════════
+       DESIGN TOKENS
+    ══════════════════════════════════════════ */
     :root {
-      --crimson: #9B1B30;   /* D1 red — hero background */
-      --rose:    #c77780;   /* D3 rose — accents */
-      --navy:    #1B3A57;   /* D1 navy — replaces D3's duck blue everywhere */
-      --blush:   #f7eced;   /* D3 blush — logo box bg */
-      --stone:   #f5f0ef;   /* warm off-white body bg */
-      --ink:     #2a1f20;
-      --mid:     #6b5b5d;
+      /* Core palette */
+      --crimson:        #9B1B30;
+      --rose:           #c77780;
+      --navy:           #1B3A57;
+      --blush:          #f7eced;
+      --stone:          #f5f0ef;
+      --ink:            #2a1f20;
+      --mid:            #6b5b5d;
+      --body-text:      #555555;
+      --border-card:    #e8dede;
+      --border-logo:    #f0dada;
+
+      /* Shadows */
+      --shadow-hover:   rgba(155, 27, 48, 0.12);
+
+      /* Hero overlays */
+      --circle-lg:      rgba(255, 255, 255, 0.07);
+      --circle-sm:      rgba(255, 255, 255, 0.05);
+      --rule-alpha:     rgba(255, 255, 255, 0.25);
+      --text-hero-sub:  rgba(255, 255, 255, 0.55);
+      --text-motto:     rgba(255, 255, 255, 0.82);
+
+      /* Toolbar / filter strip */
+      --border-tab:     rgba(255, 255, 255, 0.10);
+      --border-btn:     rgba(255, 255, 255, 0.15);
+      --text-btn:       rgba(255, 255, 255, 0.55);
+      --bg-search:      rgba(255, 255, 255, 0.08);
+      --border-search:  rgba(255, 255, 255, 0.14);
+      --text-placeholder: rgba(255, 255, 255, 0.38);
+
+      /* Contact column */
+      --text-contact:   rgba(255, 255, 255, 0.72);
+      --text-footer:    rgba(255, 255, 255, 0.40);
     }
 
     body {
@@ -25,7 +54,7 @@
     }
 
     /* ══════════════════════════════════════════
-       HERO HEADER  (Design 3 structure, D1 red)
+       HERO HEADER
     ══════════════════════════════════════════ */
     .hero {
       background: var(--crimson);
@@ -34,14 +63,13 @@
       padding: 0;
     }
 
-    /* circles */
     .hero::before {
       content: '';
       position: absolute;
       top: -70px; right: -90px;
       width: 360px; height: 360px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.07);
+      background: var(--circle-lg);
     }
 
     .hero::after {
@@ -50,7 +78,7 @@
       bottom: -50px; left: -50px;
       width: 230px; height: 230px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.05);
+      background: var(--circle-sm);
     }
 
     .hero-inner {
@@ -79,7 +107,7 @@
     .brand-rule {
       width: 1px;
       height: 46px;
-      background: rgba(255,255,255,0.25);
+      background: var(--rule-alpha);
     }
 
     .brand-words h1 {
@@ -92,61 +120,32 @@
 
     .brand-words p {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.55);
+      color: var(--text-hero-sub);
       margin-top: 0.2rem;
       letter-spacing: 0.05em;
     }
 
     .hero-right {
       margin-left: auto;
-      padding-bottom: 2rem;
+      padding-bottom: 2.5rem;
       text-align: right;
     }
 
-    .hero-right .motto {
+    .motto {
       font-family: 'Cormorant Garamond', serif;
       font-style: italic;
       font-size: 1.6rem;
-      color: rgba(255,255,255,0.82);
-    }
-
-    .hero-right .stat-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      justify-content: flex-end;
-      margin-top: 0.8rem;
-    }
-
-    .hero-right .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.7rem;
-      color: white;
-      line-height: 1;
-    }
-
-    .hero-right .stat-label {
-      font-size: 0.68rem;
-      color: rgba(255,255,255,0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .stat-sep {
-      width: 1px;
-      height: 28px;
-      background: rgba(255,255,255,0.2);
+      color: var(--text-motto);
     }
 
     /* ══════════════════════════════════════════
-       HERO-TAB  (navy strip — filters + search)
+       FILTER + SEARCH STRIP
     ══════════════════════════════════════════ */
     .hero-tab {
       background: var(--navy);
       padding: 0 2rem;
       display: flex;
       align-items: center;
-      gap: 0;
       position: relative;
       z-index: 1;
       flex-wrap: wrap;
@@ -158,7 +157,7 @@
       color: var(--rose);
       letter-spacing: 0.14em;
       padding: 0.85rem 1.2rem 0.85rem 0;
-      border-right: 1px solid rgba(255,255,255,0.1);
+      border-right: 1px solid var(--border-tab);
       margin-right: 0.9rem;
       white-space: nowrap;
     }
@@ -172,17 +171,18 @@
 
     .filter-btn {
       background: transparent;
-      border: 1px solid rgba(255,255,255,0.15);
-      color: rgba(255,255,255,0.55);
+      border: 1px solid var(--border-btn);
+      color: var(--text-btn);
       font-size: 0.74rem;
       font-family: 'Inter', sans-serif;
       padding: 0.28rem 0.75rem;
       border-radius: 4px;
       cursor: pointer;
-      transition: all 0.15s;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
     }
 
-    .filter-btn:hover, .filter-btn.active {
+    .filter-btn:hover,
+    .filter-btn.active {
       background: var(--crimson);
       border-color: var(--crimson);
       color: white;
@@ -194,8 +194,8 @@
     }
 
     .tab-search input {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.14);
+      background: var(--bg-search);
+      border: 1px solid var(--border-search);
       border-radius: 5px;
       padding: 0.38rem 0.9rem;
       color: white;
@@ -204,11 +204,11 @@
       width: 220px;
     }
 
-    .tab-search input::placeholder { color: rgba(255,255,255,0.38); }
+    .tab-search input::placeholder { color: var(--text-placeholder); }
     .tab-search input:focus { outline: none; border-color: var(--rose); }
 
     /* ══════════════════════════════════════════
-       MAIN CONTENT
+       MAIN
     ══════════════════════════════════════════ */
     .main {
       max-width: 1020px;
@@ -236,12 +236,12 @@
     }
 
     /* ══════════════════════════════════════════
-       MEMBER ROW CARD  (D1 layout + D3 palette)
+       MEMBER ROW CARD
     ══════════════════════════════════════════ */
     .mcard {
       background: white;
       border-radius: 10px;
-      border: 1px solid #e8dede;
+      border: 1px solid var(--border-card);
       display: grid;
       grid-template-columns: 88px 1fr auto;
       overflow: hidden;
@@ -249,25 +249,24 @@
       transition: box-shadow 0.2s, transform 0.15s;
     }
 
-    /* D3-inspired gradient left accent strip */
     .mcard::before {
       content: '';
       position: absolute;
       left: 0; top: 0; bottom: 0;
       width: 4px;
-      background: linear-gradient(to bottom, var(--crimson), var(--rose), var(--navy));
+      background: var(--navy);
       z-index: 1;
     }
 
     .mcard:hover {
-      box-shadow: 0 6px 26px rgba(155,27,48,0.12);
+      box-shadow: 0 6px 26px var(--shadow-hover);
       transform: translateX(3px);
     }
 
     /* Logo column */
     .mcard-logo {
       background: var(--blush);
-      border-right: 1px solid #e8dede;
+      border-right: 1px solid var(--border-card);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -279,7 +278,7 @@
       height: 56px;
       border-radius: 9px;
       background: white;
-      border: 1.5px solid #f0dada;
+      border: 1.5px solid var(--border-logo);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -293,6 +292,11 @@
     }
 
     .logo-initial {
+      display: none; /* shown via onerror when no logo is set */
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.45rem;
       font-weight: 600;
@@ -331,7 +335,7 @@
 
     .mcard-body .bio {
       font-size: 0.85rem;
-      color: #555;
+      color: var(--body-text);
       line-height: 1.62;
       margin-top: 0.45rem;
     }
@@ -364,7 +368,7 @@
     .mcard-contact a,
     .mcard-contact span {
       font-size: 0.78rem;
-      color: rgba(255,255,255,0.72);
+      color: var(--text-contact);
       text-decoration: none;
       display: flex;
       align-items: center;
@@ -375,16 +379,22 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 680px) {
-      .mcard { grid-template-columns: 1fr; }
-      .mcard-logo { border-right: none; border-bottom: 1px solid #e8dede; padding: 0.8rem 1.2rem; flex-direction: row; gap: 0.8rem; }
-      .mcard-contact { min-width: unset; }
       .hero-right { display: none; }
+      .mcard { grid-template-columns: 1fr; }
+      .mcard-logo {
+        border-right: none;
+        border-bottom: 1px solid var(--border-card);
+        padding: 0.8rem 1.2rem;
+        flex-direction: row;
+        gap: 0.8rem;
+      }
+      .mcard-contact { min-width: unset; }
     }
 
     /* ── FOOTER ── */
     footer {
       background: var(--ink);
-      color: rgba(255,255,255,0.4);
+      color: var(--text-footer);
       text-align: center;
       padding: 1.8rem;
       font-size: 0.78rem;
@@ -395,7 +405,6 @@
 </head>
 <body>
 
-<!-- ── HERO (Design 3 structure, Design 1 red, with circles) ── -->
 <div class="hero">
   <div class="hero-inner">
     <div class="hero-brand">
@@ -408,29 +417,17 @@
     </div>
     <div class="hero-right">
       <div class="motto">Givers Gain.</div>
-      <div class="stat-row">
-        <div>
-          <div class="stat-num" id="member-count">3</div>
-          <div class="stat-label">Members</div>
-        </div>
-        <div class="stat-sep"></div>
-        <div>
-          <div class="stat-num">2026</div>
-          <div class="stat-label">Chapter Year</div>
-        </div>
-      </div>
     </div>
   </div>
 
-  <!-- Navy filter + search strip (replaces toolbar) -->
   <div class="hero-tab">
-    <span class="tab-label">Filter</span>
+    <span class="tab-label">Stone</span>
     <div class="filters">
       <button class="filter-btn active" onclick="filterCat('all', this)">All</button>
       <button class="filter-btn" onclick="filterCat('finance', this)">Finance</button>
       <button class="filter-btn" onclick="filterCat('construction', this)">Construction</button>
       <button class="filter-btn" onclick="filterCat('marketing', this)">Marketing</button>
-      <!-- Add a button here for each new category you add -->
+      <!-- Add a button here for each new category -->
     </div>
     <div class="tab-search">
       <input type="text" id="search" placeholder="Search members…" oninput="filterCards()" />
@@ -447,17 +444,16 @@
          TO ADD A MEMBER:
          1. Copy a .mcard block
          2. Fill in name, profession, company, bio, contacts
-         3. Replace the logo <img> src with the business logo URL
-            (leave blank — initials show as fallback)
+         3. Set the logo <img> src to the business logo URL
+            (leave src blank — initials will show as fallback)
          4. Set data-cat to match a filter button above
          ================================================================ -->
 
     <div class="mcard" data-cat="finance">
       <div class="mcard-logo">
         <div class="logo-box">
-          <!-- Replace src with business logo URL -->
           <img src="" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
-          <div class="logo-initial" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%">JS</div>
+          <div class="logo-initial">JS</div>
         </div>
       </div>
       <div class="mcard-body">
@@ -478,7 +474,7 @@
       <div class="mcard-logo">
         <div class="logo-box">
           <img src="" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
-          <div class="logo-initial" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%">MR</div>
+          <div class="logo-initial">MR</div>
         </div>
       </div>
       <div class="mcard-body">
@@ -499,7 +495,7 @@
       <div class="mcard-logo">
         <div class="logo-box">
           <img src="" alt="" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
-          <div class="logo-initial" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%">PN</div>
+          <div class="logo-initial">PN</div>
         </div>
       </div>
       <div class="mcard-body">
@@ -532,7 +528,6 @@
     document.querySelectorAll('.mcard').forEach(c => {
       c.style.display = c.textContent.toLowerCase().includes(q) ? '' : 'none';
     });
-    updateCount();
   }
 
   function filterCat(cat, btn) {
@@ -541,12 +536,6 @@
     document.querySelectorAll('.mcard').forEach(c => {
       c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
     });
-    updateCount();
-  }
-
-  function updateCount() {
-    const visible = [...document.querySelectorAll('.mcard')].filter(c => c.style.display !== 'none').length;
-    document.getElementById('member-count').textContent = visible;
   }
 </script>
 
