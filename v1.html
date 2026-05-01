@@ -154,7 +154,7 @@
     .tab-label {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1rem;
-      color: var(--rose);
+      color: var(--stone);
       letter-spacing: 0.14em;
       padding: 0.85rem 1.2rem 0.85rem 0;
       border-right: 1px solid var(--border-tab);
@@ -338,6 +338,16 @@
       color: var(--body-text);
       line-height: 1.62;
       margin-top: 0.45rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .mcard:hover .mcard-body .bio {
+      display: block;
+      overflow: visible;
     }
 
     .cat-tag {
