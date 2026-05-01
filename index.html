@@ -661,7 +661,8 @@
     grid.innerHTML = state.members.map(member => {
       const categorySlug = slugify(member.category);
       const website = normalizeWebsite(member.website);
-      const officePhone = member.officePhone && member.officePhone !== member.phone ? member.officePhone : '';
+      const primaryPhone = member.cellPhone || member.phone || '';
+      const officePhone = member.officePhone && member.officePhone !== primaryPhone ? member.officePhone : '';
 
       return `
         <div class="mcard" data-cat="${escapeHtml(categorySlug)}">
@@ -680,7 +681,7 @@
             <button class="bio-toggle">more</button>
           </div>
           <div class="mcard-contact">
-            ${member.phone ? `<a href="${escapeHtml(phoneHref(member.phone))}"><svg width="14" height="14"><use href="#icon-phone"/></svg><span class="contact-text">${escapeHtml(member.phone)}</span></a>` : ''}
+            ${primaryPhone ? `<a href="${escapeHtml(phoneHref(primaryPhone))}"><svg width="14" height="14"><use href="#icon-phone"/></svg><span class="contact-text">${escapeHtml(primaryPhone)}</span></a>` : ''}
             ${officePhone ? `<a href="${escapeHtml(phoneHref(officePhone))}"><svg width="14" height="14"><use href="#icon-office-phone"/></svg><span class="contact-text">${escapeHtml(officePhone)}</span></a>` : ''}
             ${member.email ? `<a href="mailto:${escapeHtml(member.email)}"><svg width="14" height="14"><use href="#icon-mail"/></svg><span class="contact-text">${escapeHtml(member.email)}</span></a>` : ''}
             ${website ? `<a href="${escapeHtml(website)}" target="_blank" rel="noreferrer"><svg width="14" height="14"><use href="#icon-globe"/></svg><span class="contact-text">${escapeHtml(formatWebsite(website))}</span></a>` : ''}
