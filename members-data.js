@@ -43,9 +43,9 @@ window.BNI_DIRECTORY_DATA = [
     "email": "james.dieguez@ampf.com",
     "logoUrl": "",
     "name": "James Dieguez",
-    "officePhone": "17-258-3487",
+    "officePhone": "917-258-3487",
     "profession": "Financial advisor",
-    "website": ""
+    "website": "James Dieguez, Associate Financial Advisor in White Plains, NY"
   },
   {
     "bio": "",
