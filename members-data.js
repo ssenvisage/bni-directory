@@ -38,12 +38,12 @@ window.BNI_DIRECTORY_DATA = [
   {
     "bio": "James helps individuals, families, and business owners gain clarity and confidence through personalized financial planning. He focuses on retirement, investments, and long-term strategy as a trusted financial partner.",
     "category": "Finance",
-    "cellPhone": "917-258-3487",
+    "cellPhone": "516-941-8318",
     "company": "Ameriprise Financial",
     "email": "james.dieguez@ampf.com",
     "logoUrl": "",
     "name": "James Dieguez",
-    "officePhone": "516-941-8318",
+    "officePhone": "17-258-3487",
     "profession": "Financial advisor",
     "website": "https://www.ameriprise.com"
   },
@@ -96,7 +96,7 @@ window.BNI_DIRECTORY_DATA = [
     "website": "https://asher-law.com/asher-law-profile/"
   },
   {
-    "bio": "Helping you ensure you have the right Insurance setup",
+    "bio": "",
     "category": "Finance",
     "cellPhone": "",
     "company": "Albert J. Chapman Agency, Inc.",
