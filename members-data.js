@@ -42,7 +42,7 @@ window.BNI_DIRECTORY_DATA = [
     "company": "Ameriprise Financial",
     "email": "james.dieguez@ampf.com",
     "logoUrl": "",
-    "name": "James Dieguez",
+    "name": "James M. Dieguez",
     "officePhone": "917-258-3487",
     "profession": "Financial advisor",
     "website": "James Dieguez, Associate Financial Advisor in White Plains, NY"
