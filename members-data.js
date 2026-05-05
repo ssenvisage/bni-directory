@@ -45,7 +45,7 @@ window.BNI_DIRECTORY_DATA = [
     "name": "James Dieguez",
     "officePhone": "17-258-3487",
     "profession": "Financial advisor",
-    "website": "https://www.ameriprise.com"
+    "website": ""
   },
   {
     "bio": "",
