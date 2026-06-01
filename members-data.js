@@ -50,7 +50,7 @@ window.BNI_DIRECTORY_DATA = [
   {
     "bio": "",
     "category": "Marketing",
-    "cellPhone": "",
+    "cellPhone": "845-598-3100",
     "company": "Westchester Retail Network",
     "email": "jeff@westchesterretailnetwork.com",
     "logoUrl": "",
