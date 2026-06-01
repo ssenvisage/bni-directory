@@ -170,12 +170,12 @@ window.BNI_DIRECTORY_DATA = [
   {
     "bio": "Shanthan helps business owners keep their technology running smoothly so they can stay focused on growing their business. He also builds custom automations that save time, reduce manual work, and improve efficiency.",
     "category": "Technology",
-    "cellPhone": "203-443-1646",
+    "cellPhone": "203-300-6434",
     "company": "CMIT Solutions of Northern Westchester & Putnam County",
     "email": "subramaniam@cmitsolutions.com",
     "logoUrl": "",
     "name": "Shanthan Subramaniam",
-    "officePhone": "",
+    "officePhone": "203-443-1646",
     "profession": "Managed IT, cybersecurity & custom automation",
     "website": "https://cmitsolutions.com/westchester-ny-1180"
   },
